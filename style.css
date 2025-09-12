@@ -19,12 +19,82 @@ nav ul { display: flex; list-style: none; }
 nav ul li { margin-left: 20px; }
 nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
 nav ul li a:hover { color: #00c853; }
-header img{
-  position: absolute;
-  width: 5rem;
-  border-radius: 0.4rem;
-  margin-left: 1rem;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #23325a;
+  color: white;
 }
+
+header .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header .logo img {
+  width: 3rem;
+  height: auto;
+  border-radius: 0.4rem;
+  margin-left: 0.5rem;
+}
+
+/* Ocultar menú en móviles */
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.3rem;
+}
+
+.hamburguesa span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none; /* se oculta por defecto */
+    flex-direction: column;
+    background: #23325a;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hamburguesa {
+    display: flex;
+  }
+}
+
 /* ------------------------- 
    SECCIONES GENERALES 
 ------------------------- */
@@ -117,10 +187,9 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: #23325a; /* azul de fondo */
+  background: #23325a;
   color: white;
 }
 
@@ -128,47 +197,32 @@ section {
   margin-bottom: 2rem;
 }
 
-.servicios-contenedor {
+#coloresservicios {
   display: flex;
-  flex-wrap: wrap;         /* permite que salten a la siguiente fila */
-  justify-content: center; /* centra horizontal */
-  gap: 1.5rem;             /* espacio entre tarjetas */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-.servicios-contenedor .card {
-  flex: 1 1 200px;         /* ancho mínimo de 200px y flexible */
-  max-width: 250px;        /* límite de ancho */
+#coloresservicios .card {
+  flex: 1 1 200px;   /* crece, encoge y mínimo 200px */
+  max-width: 250px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #f4f4f4;
-  padding: 2rem;
   border-radius: 10px;
-  text-align: center;
   color: black;
   font-weight: bold;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.3s;
 }
 
-.servicios-contenedor .card:hover {
+#coloresservicios .card:hover {
   transform: translateY(-5px);
 }
 
-#coloresservicios{
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#coloresservicios .card {
-  flex: 1;                 /* Todas ocupan el mismo ancho disponible */
-  min-width: 200px;        /* Evita que se hagan demasiado pequeñas en pantallas chicas */
-  max-width: 250px;        /* Controla que no sean demasiado grandes */
-  height: 120px;           /* Altura uniforme */
-  display: flex;
-  align-items: center;     /* Centra verticalmente el texto */
-  justify-content: center; /* Centra horizontalmente el texto */
-  text-align: center;      /* Centra el texto dentro */
-  cursor: pointer;     
-}
 
 
 /* ------------------------- 
