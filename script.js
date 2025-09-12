@@ -28,3 +28,12 @@ function typeEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+// -------------------------
+// MENÚ HAMBURGUESA
+// -------------------------
+function toggleMenu() {
+  const menu = document.getElementById("menuMovil");
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+

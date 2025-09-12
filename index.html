@@ -11,18 +11,36 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">JCH Ingeniería S.A.S.</div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes">Quiénes Somos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#compromiso">Compromiso</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="logo">JCH Ingeniería S.A.S.</div>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#quienes">Quiénes Somos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#compromiso">Compromiso</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburguesa" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<div class="menu-movil" id="menuMovil">
+  <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+  <a href="#quienes" onclick="toggleMenu()">Quiénes Somos</a>
+  <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+  <a href="#experiencia" onclick="toggleMenu()">Experiencia</a>
+  <a href="#compromiso" onclick="toggleMenu()">Compromiso</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+</div>
+
 
   <!-- Hero -->
   <section id="inicio" class="hero">

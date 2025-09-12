@@ -205,3 +205,55 @@ footer {
     padding: 1.2rem;
   }
 }
+/* -------------------------
+   MENÚ HAMBURGUESA
+------------------------- */
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1100;
+}
+
+.hamburguesa span {
+  background: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 5px;
+}
+
+/* Menú móvil oculto */
+.menu-movil {
+  display: none;
+  flex-direction: column;
+  background: #111;
+  position: absolute;
+  top: 70px; 
+  right: 0;
+  width: 200px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.menu-movil a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.menu-movil a:hover {
+  background: #00c853;
+}
+
+/* Responsive: oculta menú normal y muestra hamburguesa */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .hamburguesa {
+    display: flex;
+  }
+}
+
