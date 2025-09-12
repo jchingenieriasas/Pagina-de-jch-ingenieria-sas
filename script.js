@@ -34,6 +34,15 @@ document.addEventListener("DOMContentLoaded", typeEffect);
 // -------------------------
 function toggleMenu() {
   const menu = document.getElementById("menuMovil");
-  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+  menu.classList.toggle("active");
 }
 
+// Cerrar el menú si haces clic fuera
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("menuMovil");
+  const burger = document.querySelector(".hamburguesa");
+
+  if (!menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.classList.remove("active");
+  }
+});

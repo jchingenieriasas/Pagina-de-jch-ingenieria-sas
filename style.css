@@ -225,15 +225,17 @@ footer {
 
 /* Menú móvil oculto */
 .menu-movil {
-  display: none;
+  display: flex;
   flex-direction: column;
   background: #111;
-  position: absolute;
-  top: 70px; 
+  position: fixed;
+  top: 70px;
   right: 0;
   width: 200px;
   padding: 10px;
   z-index: 1000;
+  transform: translateX(100%); /* Oculto fuera de pantalla */
+  transition: transform 0.3s ease-in-out;
 }
 
 .menu-movil a {
@@ -246,6 +248,12 @@ footer {
 .menu-movil a:hover {
   background: #00c853;
 }
+
+/* Estado visible */
+.menu-movil.active {
+  transform: translateX(0);
+}
+
 
 /* Responsive: oculta menú normal y muestra hamburguesa */
 @media (max-width: 768px) {
