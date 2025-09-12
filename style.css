@@ -1,4 +1,4 @@
-/* ------------------------- 
+/* -------------------------  
    RESET BÁSICO 
 ------------------------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -10,106 +10,53 @@ body { font-family: Arial, sans-serif; line-height: 1.6; }
 ------------------------- */
 header {
   position: fixed; top: 0; width: 100%;
-  background: #111; color: #fff;
+  background: #23325a; color: #fff;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 2rem; z-index: 1000;
-   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #23325a;
 }
-header .logo { font-size: 1.3rem; font-weight: bold; }
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
-nav ul li a:hover { color: #00c853; }
-
 
 header .logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
+  display: flex; align-items: center; font-size: 1.2rem; font-weight: bold;
 }
-
 header .logo img {
-  width: 5rem;
-  height: auto;
-  border-radius: 0.4rem;
-  margin-left: 0.5rem;
+  width: 5rem; height: auto; border-radius: 0.4rem; margin-left: 0.5rem;
 }
 
-/* Ocultar menú en móviles */
-nav {
-  display: flex;
-}
-
-nav ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
+nav { display: flex; }
+nav ul { display: flex; gap: 1.5rem; list-style: none; }
+nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: #00c853; }
 
 .hamburguesa {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 0.3rem;
+  display: none; flex-direction: column; cursor: pointer; gap: 0.3rem; z-index: 1100;
 }
-
 .hamburguesa span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
+  width: 25px; height: 3px; background: white; border-radius: 2px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  nav {
-    display: none; /* se oculta por defecto */
-    flex-direction: column;
-    background: #23325a;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  .hamburguesa {
-    display: flex;
-  }
+/* Menú móvil */
+.menu-movil {
+  display: flex; flex-direction: column;
+  background: #111; position: fixed; top: 70px; right: 0;
+  width: 200px; padding: 10px; z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
+.menu-movil a { color: white; padding: 10px; text-decoration: none; border-bottom: 1px solid #333; }
+.menu-movil a:hover { background: #00c853; }
+.menu-movil.active { transform: translateX(0); }
 
 /* ------------------------- 
    SECCIONES GENERALES 
 ------------------------- */
-section { 
-  min-height: 100vh; 
-  padding: 5rem 2rem; 
-  text-align: center; 
-}
+section { min-height: 100vh; padding: 5rem 2rem; text-align: center; }
 
 /* ------------------------- 
-   HERO (SECCIÓN INICIAL) 
+   HERO
 ------------------------- */
 .hero {
   background: #19183B url('https://source.unsplash.com/1600x900/?energy,engineering') no-repeat center/cover;
-  color: #fff; 
-  display: flex; flex-direction: column; 
-  justify-content: center; align-items: center; 
+  color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding-top: 5rem;
 }
 .hero h1 span { color: #00c853; }
@@ -123,92 +70,60 @@ section {
 .btn:hover { background: #009624; }
 
 /* ------------------------- 
-   GRID GENERAL (SERVICIOS, EXPERIENCIA, ETC.)
-------------------------- */
-.grid {
-  display: grid; 
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 1.5rem; 
-  margin-top: 2rem;
-}
-.card {
-  background: #f4f4f4; padding: 2rem; border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-.card:hover { transform: translateY(-5px); }
-
-/* ------------------------- 
-   QUIÉNES SOMOS (CAJAS)
+   QUIÉNES SOMOS
 ------------------------- */
 .quienes {
   background-color: #124170;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2rem; padding: 2rem;
 }
-.contenedor-cajas {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;  
-  gap: 1rem;
-}
-.contenedor-cajas > div {
-  flex: 1;               
-  padding: 1rem;
-  border-radius: 1rem;
-  text-align: justify;
-}
-.pj { background-color: #0D7E83; display: flex; align-items: center; justify-content: center; }
-.mision { background-color: #476EAE; display: flex; align-items: center; justify-content: center; }
-.vision { background-color: #B45253; display: flex; align-items: center; justify-content: center; }
 
-/* ------------------------- 
-   CONTACTO
+.contenedor-cajas {
+  display: flex; justify-content: center; align-items: stretch; gap: 1rem;
+  width: 100%;
+}
+
+.contenedor-cajas > div {
+  flex: 1; padding: 1rem; border-radius: 1rem; text-align: justify;
+  display: flex; justify-content: center; align-items: center;
+}
+
+.pj { background-color: #0D7E83; }
+.mision { background-color: #476EAE; }
+.vision { background-color: #B45253; }
+
+/* -------------------------
+   NUESTROS SERVICIOS
 ------------------------- */
-.contacto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-.servicios{
-  background-color: #26355D;
-  color: #fff;
-}
 .servicios {
+  background-color: #23325a;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;   /* centra verticalmente todo el contenido */
+  align-items: center;       /* centra horizontalmente todo el contenido */
   text-align: center;
   padding: 2rem;
-  background: #23325a;
-  color: white;
-}
-
-.servicios h2 {
-  margin-bottom: 2rem;
 }
 
 #coloresservicios {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;   /* centra horizontalmente las cards */
+  align-items: center;       /* centra verticalmente las cards */
   gap: 1.5rem;
+  width: 100%;
 }
 
 #coloresservicios .card {
-  flex: 1 1 200px;   /* crece, encoge y mínimo 200px */
+  flex: 1 1 200px;     /* crece, encoge, mínimo 200px */
   max-width: 250px;
   height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; 
+  justify-content: center;  /* centra el texto horizontal */
+  align-items: center;      /* centra el texto vertical */
   background: #f4f4f4;
   border-radius: 10px;
   color: black;
@@ -221,33 +136,103 @@ section {
   transform: translateY(-5px);
 }
 
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #coloresservicios {
+    flex-direction: column; /* tarjetas una debajo de otra */
+    align-items: center;    /* centradas horizontalmente */
+  }
+  #coloresservicios .card {
+    max-width: 90%;
+    height: auto;
+    padding: 1.5rem;
+  }
+}
 
+/* ------------------------- 
+   EXPERIENCIA
+------------------------- */
+#experiencia {
+  background-color: #44444E;
+  color: #fff; text-align: center; padding: 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+   gap: 2rem;
+}
+
+#experiencia .grid {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 1.5rem; width: 100%;
+}
+
+#experiencia .card {
+  color: #000; flex: 1 1 200px; max-width: 250px; height: 120px;
+  font-weight: bold; display: flex; justify-content: center; align-items: center;
+  border-radius: 10px; background: #f4f4f4; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+#experiencia .card:hover { transform: translateY(-5px); }
+
+/* ------------------------- 
+   COMPROMISO
+------------------------- */
+#compromiso {
+  background-color: #715A5A;
+  color: #fff; text-align: center; padding: 2rem; gap: 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+#compromiso .grid {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 1.5rem; width: 100%;
+}
+
+#compromiso .card {
+  color: #000; flex: 1 1 200px; max-width: 250px; height: 120px;
+  font-weight: bold; display: flex; justify-content: center; align-items: center;
+  border-radius: 10px; background: #f4f4f4; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+#compromiso .card:hover { transform: translateY(-5px); }
+
+/* ------------------------- 
+   CONTACTO
+------------------------- */
+#contacto {
+  background-color: #17313E;
+  color: #fff; text-align: center; padding: 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1rem;
+}
+
+#contacto .grid {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 1.5rem; width: 100%;
+}
+
+#contacto .card {
+  color: #000; flex: 1 1 200px; max-width: 250px; height: 120px;
+  font-weight: bold; display: flex; justify-content: center; align-items: center;
+  border-radius: 10px; background: #f4f4f4; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+#contacto .card:hover { transform: translateY(-5px); }
 
 /* ------------------------- 
    FOOTER 
 ------------------------- */
 footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-  background: #111; color: #ddd; text-align: center;
-  padding: 2rem; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  gap: 1rem; background: #111; color: #ddd; text-align: center; padding: 2rem;
+  min-height: 100vh;
 }
-.footer-links {
-  list-style: none; display: flex; justify-content: center;
-  gap: 1rem; margin: 1rem 0;
-}
+.footer-links { list-style: none; display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; }
 .footer-links a { color: #00c853; text-decoration: none; }
 
 /* ------------------------- 
    BOTÓN FLOTANTE WHATSAPP 
 ------------------------- */
 .whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   position: fixed; bottom: 20px; right: 20px;
   background: #25d366; border-radius: 50%;
   padding: 15px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
@@ -255,131 +240,48 @@ footer {
 }
 .whatsapp img { width: 40px; height: 40px; }
 
-/* ========================================================
-   📱 RESPONSIVE DESIGN
-   Estilos adaptados para móviles y pantallas pequeñas
-======================================================== */
-
-/* --- Ajuste general para tablets y móviles --- */
-@media (max-width: 1024px) {
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  section {
-    padding: 4rem 1rem;
-  }
-}
-
-/* --- Ajuste especial para móviles --- */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .contenedor-cajas {
-    flex-direction: column; /* Cajas una debajo de otra */
-  }
-  .grid {
-    grid-template-columns: 1fr; /* Servicios y experiencia en una sola columna */
-  }
-  .hero {
-    text-align: center;
-    padding: 6rem 1rem 2rem;
-  }
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-  footer {
-    padding: 2rem 1rem;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* --- Móviles muy pequeños (ej: 375px) --- */
-@media (max-width: 480px) {
-  header .logo {
-    font-size: 1.1rem;
-  }
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-  .btn {
-    width: 100%; /* Botón ancho completo */
-  }
-  .card {
-    padding: 1.2rem;
-  }
-}
 /* -------------------------
-   MENÚ HAMBURGUESA
+   RESPONSIVE
 ------------------------- */
-.hamburguesa {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  z-index: 1100;
+@media (max-width: 1024px) {
+  nav ul { flex-wrap: wrap; justify-content: center; }
+  section { padding: 4rem 1rem; }
 }
 
-.hamburguesa span {
-  background: white;
-  height: 3px;
-  width: 25px;
-  border-radius: 5px;
-}
-
-/* Menú móvil oculto */
-.menu-movil {
-  display: flex;
-  flex-direction: column;
-  background: #111;
-  position: fixed;
-  top: 70px;
-  right: 0;
-  width: 200px;
-  padding: 10px;
-  z-index: 1000;
-  transform: translateX(100%); /* Oculto fuera de pantalla */
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-movil a {
-  color: white;
-  padding: 10px;
-  text-decoration: none;
-  border-bottom: 1px solid #333;
-}
-
-.menu-movil a:hover {
-  background: #00c853;
-}
-
-/* Estado visible */
-.menu-movil.active {
-  transform: translateX(0);
-}
-
-
-/* Responsive: oculta menú normal y muestra hamburguesa */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
+  header { flex-direction: column; padding: 1rem; }
+  nav ul { flex-direction: column; gap: 0.5rem; margin-top: 1rem; display: none; }
+  .hamburguesa { display: flex; }
+
+  /* Quiénes Somos */
+  .contenedor-cajas { flex-direction: column; align-items: center; }
+  .contenedor-cajas > div { max-width: 90%; height: auto; padding: 1.5rem; }
+
+  /* Secciones con cards */
+  #coloresservicios,
+  #experiencia .grid,
+  #compromiso .grid,
+  #contacto .grid {
+    flex-direction: column; align-items: center;
   }
-  .hamburguesa {
-    display: flex;
+
+  #coloresservicios .card,
+  #experiencia .card,
+  #compromiso .card,
+  #contacto .card {
+    max-width: 90%; height: auto; padding: 1.5rem;
   }
+
+  .hero { text-align: center; padding: 6rem 1rem 2rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .btn { padding: 0.6rem 1rem; font-size: 0.9rem; width: auto; }
+  footer { padding: 2rem 1rem; }
+  .footer-links { flex-direction: column; gap: 0.5rem; }
 }
 
+@media (max-width: 480px) {
+  header .logo { font-size: 1.1rem; }
+  .hero h1 { font-size: 1.5rem; }
+  .btn { width: 100%; }
+  .card { padding: 1.2rem; }
+}
