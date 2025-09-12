@@ -13,20 +13,18 @@ header {
   background: #111; color: #fff;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 2rem; z-index: 1000;
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #23325a;
 }
 header .logo { font-size: 1.3rem; font-weight: bold; }
 nav ul { display: flex; list-style: none; }
 nav ul li { margin-left: 20px; }
 nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
 nav ul li a:hover { color: #00c853; }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #23325a;
-  color: white;
-}
+
 
 header .logo {
   display: flex;
@@ -36,7 +34,7 @@ header .logo {
 }
 
 header .logo img {
-  width: 3rem;
+  width: 5rem;
   height: auto;
   border-radius: 0.4rem;
   margin-left: 0.5rem;
