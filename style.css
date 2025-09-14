@@ -193,13 +193,11 @@ section { min-height: 100vh; padding: 5rem 2rem; text-align: center; }
 ------------------------- */
 .toast {
   visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
+  max-width: 80%;             /* para que se ajuste en móviles */
   background: #00c853;
   color: #fff;
-  text-align: center;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   position: fixed;
   z-index: 2000;
   left: 50%;
@@ -208,13 +206,18 @@ section { min-height: 100vh; padding: 5rem 2rem; text-align: center; }
   opacity: 0;
   transition: opacity 0.5s, bottom 0.5s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  /* centrado automático */
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .toast.show {
   visibility: visible;
   opacity: 1;
-  bottom: 65vh;
+  bottom: 65vh;  /* puedes ajustar la altura según prefieras */
 }
+
 
 
 /* ------------------------- 
