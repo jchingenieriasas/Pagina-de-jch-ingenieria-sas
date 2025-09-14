@@ -46,3 +46,27 @@ document.addEventListener("click", function(event) {
     menu.classList.remove("active");
   }
 });
+
+
+function copiarTexto(texto, mensaje) {
+  navigator.clipboard.writeText(texto).then(() => {
+    const aviso = document.getElementById("mensaje-copiado");
+    aviso.textContent = mensaje;
+    setTimeout(() => { aviso.textContent = ""; }, 2000); // se borra a los 2 segundos
+  });
+}
+
+function copiarTexto(texto, mensaje) {
+  navigator.clipboard.writeText(texto).then(() => {
+    mostrarToast(mensaje);
+  });
+}
+
+function mostrarToast(mensaje) {
+  const toast = document.getElementById("toast");
+  toast.textContent = mensaje;
+  toast.className = "toast show";
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "");
+  }, 2500); // dura 2.5 segundos
+}
